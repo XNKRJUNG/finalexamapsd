@@ -49,9 +49,16 @@ Create a new astronaut with a list of satellite IDs.
   "experienceYears": 20,
   "satelliteIds": [1, 2]
 }
+  ![Create Astronaut1](screenshots/post-astronaut-success1.png)
+  ![Create Astronaut2](screenshots/post-astronaut-success2.png)
+  ![Create Astronaut3](screenshots/post-astronaut-success3.png)
 
 2. 📄 GET /api/v1/astronauts?page=0&size=5&sort=experienceYears,desc
 Get all astronauts (paginated & sorted)
+  ![Sorted Astronauts1](screenshots/get-astronauts-sorted1.png)
+  ![Sorted Astronauts2](screenshots/get-astronauts-sorted2.png)
+  ![Sorted Astronauts3](screenshots/get-astronauts-sorted3.png)
+
 
 3. ✏️ PUT /api/v1/satellites/{id}
 Update a satellite if it's not decommissioned.
@@ -63,9 +70,12 @@ Update a satellite if it's not decommissioned.
   "orbitType": "LEO",
   "decommissioned": false
 }
+  ![Successful Satellite Update](screenshots/put-satellite-success.png)
+
 
 4. ❌ PUT /api/v1/satellites/{id} (Decommissioned)
 Attempt to update a decommissioned satellite.
+  ![Decommission Error](screenshots/put-satellite-decommissioned-error.png)
 
 5. ⚠️ POST /api/v1/astronauts (Validation Failures)
   a. Missing field:
@@ -74,6 +84,7 @@ Attempt to update a decommissioned satellite.
     "experienceYears": 15,
     "satelliteIds": [1]
   }
+  ![Validation Error1](screenshots/validation-error1.png)
 
   b. Invalid satellite ID:
   {
@@ -82,18 +93,8 @@ Attempt to update a decommissioned satellite.
   "experienceYears": 10,
   "satelliteIds": [9999]
   }
+  ![Validation Error2](screenshots/validation-error2.png)
 
-
-✅ Test Data Used
-Satellites:
-  Hubble (LEO)
-  Starlink-17 (LEO)
-  Sentinel-6 (LEO, decommissioned)
-
-Astronauts:
-  Neil Armstrong
-  Sally Ride
-  Chris Hadfield
 
 
 Thank you!!
