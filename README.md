@@ -40,53 +40,63 @@ This Spring Boot REST API allows you to manage astronauts and satellites, includ
 ## 📸 Screenshot 
 
 1. 🎯 POST /api/v1/astronauts
-Create a new astronaut with a list of satellite IDs.
+   - Create a new astronaut with a list of satellite IDs.
 
-✅ Sample Request
-{
-  "firstName": "Neil",
-  "lastName": "Armstrong",
-  "experienceYears": 20,
-  "satelliteIds": [1, 2]
-}
-  ![Create Astronaut1](screenshots/post-astronaut-success1.png)
-  ![Create Astronaut2](screenshots/post-astronaut-success2.png)
-  ![Create Astronaut3](screenshots/post-astronaut-success3.png)
+     - ✅ Sample Request
+     {
+       "firstName": "Neil",
+       "lastName": "Armstrong",
+       "experienceYears": 20,
+       "satelliteIds": [1, 2]
+     }
+       ![Create Astronaut1](screenshots/post-astronaut-success1.png)
+       ![Create Astronaut2](screenshots/post-astronaut-success2.png)
+       ![Create Astronaut3](screenshots/post-astronaut-success3.png)
 
 2. 📄 GET /api/v1/astronauts?page=0&size=5&sort=experienceYears,desc
-Get all astronauts (paginated & sorted)
+   - Get all astronauts (paginated & sorted)
   ![Sorted Astronauts1](screenshots/get-astronauts-sorted1.png)
   ![Sorted Astronauts2](screenshots/get-astronauts-sorted2.png)
   ![Sorted Astronauts3](screenshots/get-astronauts-sorted3.png)
 
 
 3. ✏️ PUT /api/v1/satellites/{id}
-Update a satellite if it's not decommissioned.
+   - Update a satellite if it's not decommissioned.
 
-✅ Request:
-{
-  "name": "Hubble Telescope",
-  "launchDate": "1990-04-24",
-  "orbitType": "LEO",
-  "decommissioned": false
-}
-  ![Successful Satellite Update](screenshots/put-satellite-success.png)
+     - ✅ Request:
+     {
+       "name": "Hubble Telescope",
+       "launchDate": "1990-04-24",
+       "orbitType": "LEO",
+       "decommissioned": false
+     }
+       ![Successful Satellite Update](screenshots/put-satellite-success.png)
 
 
 4. ❌ PUT /api/v1/satellites/{id} (Decommissioned)
-Attempt to update a decommissioned satellite.
-  ![Decommission Error](screenshots/put-satellite-decommissioned-error.png)
+   - Attempt to update a decommissioned satellite.
+   - ✅ Request:
+   {
+     "name": "Sentinel-6 Upgrade",
+     "launchDate": "2020-11-21",
+     "orbitType": "LEO",
+     "decommissioned": true
+    }
+
+     ![Decommission Error](screenshots/put-satellite-decommissioned-error.png)
 
 5. ⚠️ POST /api/v1/astronauts (Validation Failures)
-  a. Missing field:
+   - a. Missing field:
+     - ✅ Request:
   {
-    "firstName": "Buzz",
-    "experienceYears": 15,
-    "satelliteIds": [1]
+      "firstName": "Buzz",
+      "experienceYears": 15,
+      "satelliteIds": [1]
   }
   ![Validation Error1](screenshots/validation-error1.png)
 
-  b. Invalid satellite ID:
+   - b. Invalid satellite ID:
+     - ✅ Request:
   {
   "firstName": "Yuri",
   "lastName": "Gagarin",
